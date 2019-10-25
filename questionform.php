@@ -1,40 +1,55 @@
 <?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+
     include("questionform.html");
 
-    $name = filer_input(INPUT_POST, 'name');
-    $about = filer_input(INPUT_POST, 'about');
-    $skills = filer_input(INPUT_POST, 'skill');
+    $name = filter_input(INPUT_POST, 'name');
+    $about = filter_input(INPUT_POST, 'about');
+    $skills = filter_input(INPUT_POST, 'skills');
 
     $name = (isset($name)) ? $name : '';
-    $about = (isset($about)) ? $about: '';
+    $about = (isset($about)) ? $about : '';
     $skills = (isset($skills)) ? $skills : '';
 
-
-    $skillset = explode(',' , $skills);
-    foreach($skillset as $value)
-    {
-        echo $value.PHP_EOL;
-    }
-
     $namelength = strlen($name);
-    if($namelength < 3) {echo "invalid name length: ".$name." is not at least 3 characters long"; exit();}
-    if($empty($name)) {print "you must enter your name"; exit();}
+    if($namelength < 3) {echo "<br>Error in Name Field: invalid name length: ".$name." is not at least 3 characters long<br>";}
+    if(empty($name)) {print "<br>Error in Name Field: you must enter your name<br>";}
 
     $aboutlength = strlen($about);
-    if($aboutlength > 500) {print "the number of words you entered is > 500"; exit();}
-    if($empty($about)) {print "you the the second field empty"; exit();}
+    if($aboutlength > 500) {print "<br>Error in About Field: the number of words you entered is > 500<br>"; /*exit();*/}
+    if(empty($about)) {print "<br>Error in About Field: you the the second field empty<br>";}
 
-    /*
-    if(isset($_POST['submit'])) {
-        $checked_count = count($_POST['check_list']);
-        if (!empty($_POST['skill']) && count($checked_count) >= 2) {
-            $total_checked = count($_POST['skill'] as $selected){
-                echo "<p>" . $selected . "</p>";
-            }
-        } else {
-            echo "<b>Select at leas 2 options</b>";
+    $skillset = explode(',' , $skills);
+    $skillselected = count($skillset);
+    if($skillselected < 2) {print "<br>Error in Skills Field: please write down at least two skills<br>";}
+
+    print "<br><br>";
+    print "Name: $name";
+    print "<br><br>";
+    print "About: $about";
+
+    $skillset = explode(',' , $skills);
+    print "<br><br>";
+    print "Skills: ";
+    for($i = 0; $i < count($skillset); $i++){
+        echo "$skillset[$i]";
+        if($i < (count($skillset) -1)){
+            echo ", ";
         }
+
+
+
+
     }
-    */
+        /*
+        if($key == count($skillselected));
+        {
+            echo "$value . ";exit();
+
+        }
+        */
+
 
 ?>

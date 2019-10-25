@@ -1,5 +1,6 @@
 body {
     font-family: 'Montserrat';
+    margin: 0 auto;
 }
 main {
     width: 450px;
@@ -17,32 +18,13 @@ h1 {
     color: black;
 }
 
-h2 {
-    margin-top: 10px;
-    pad-bottom: 10em;
-    color: black;
-
-
-}
 label {
     width: 12em;
     float: left;
 
     padding-right: 3em;
     padding-bottom: 1em;
-
 }
-/*
-label2 {
-
-    width: 12em;
-    float: left;
-    margin-bottom: 2em;
-
-    padding-right: 3em;
-    padding-bottom: 1em;
-}
-*/
 
 #data input {
     float: left;
@@ -50,11 +32,6 @@ label2 {
     margin-bottom: .5em;
 }
 
-/*
-#data span {
-    padding-left: 0.25em;
-}
-*/
 #buttons input {
     margin-bottom: 0.2em;
 
